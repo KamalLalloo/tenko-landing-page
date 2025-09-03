@@ -1,0 +1,75 @@
+.about {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center; /* center all text */
+}
+
+.heading {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #800020; /* maroon */
+  margin-bottom: 3rem;
+}
+
+.intro p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  color: #333;
+  font-size: 1.5rem;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 2rem;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.list li {
+  margin-bottom: 0.5rem;
+}
+
+.subheading {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin: 3rem 0 2rem;
+  color: #800020;
+}
+
+.grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, 300px); /* fixed card size */
+  justify-content: center; /* centers leftover columns */
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card h4 {
+  font-size: 1.2rem;
+  color: #800020;
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.closing {
+  margin-top: 3rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #333;
+}
