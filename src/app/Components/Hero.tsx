@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import styles from "./Hero.module.css";
 
 export default function Hero() {
@@ -10,7 +11,9 @@ export default function Hero() {
         study tools to level up your education journey.
       </p>
       <div className={styles.buttons}>
-        <button className={styles.primary}>Go to Dashboard</button>
+        <Link href="https://tenko-sepia.vercel.app/login">
+          <button className={styles.primary}>Go to Dashboard</button>
+        </Link>
         <button className={styles.secondary}>Explore Features</button>
       </div>
     </section>

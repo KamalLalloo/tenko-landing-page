@@ -34,7 +34,7 @@ export default function Header() {
         </ul>
 
         {/* Button on the right */}
-        <Link href="https://tenko-sepia.vercel.app" target="_blank">
+        <Link href="https://tenko-sepia.vercel.app/login" target="_blank">
           <button className={styles.button}>Dashboard</button>
         </Link>
       </nav>
