@@ -18,9 +18,6 @@ export default function CallToAction() {
           <Link href="https://tenko-sepia.vercel.app/login">
             <button className={styles.primaryButton}>Sign Up for Free</button>
           </Link>
-          <Link href="#demo">
-            <button className={styles.secondaryButton}>Schedule a Demo</button>
-          </Link>
         </div>
 
         <p className={styles.note}>
