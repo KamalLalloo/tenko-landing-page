@@ -1,5 +1,5 @@
 .header {
-  position: relative;
+  position: fixed; /* 👈 fix it at the top */
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
