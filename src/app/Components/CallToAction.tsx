@@ -21,7 +21,7 @@ export default function CallToAction() {
         </div>
 
         <p className={styles.note}>
-          ✓ No credit card required ✓ 100% free signup ✓ Cancel anytime
+          ✓ No credit card required ✓ 100% free signup
         </p>
       </div>
     </section>

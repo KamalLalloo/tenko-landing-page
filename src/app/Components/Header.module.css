@@ -1,5 +1,5 @@
 .header {
-  position: fixed;
+  position: relative;
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
@@ -20,28 +20,35 @@
 .navList {
   list-style: none;
   display: flex;
-  gap: 30px;
-  margin: 0;
-  padding: 0;
+  gap: 35px;
+  margin: 2px;
+  padding: 2px;
 }
-
 .link {
   text-decoration: none;
+  background-color: #f9f4f4;
   color: #333;
-  font-weight: 500;
-  transition: color 0.3s ease;
+  border: 2px solid transparent; /* 👈 reserve space */
+  padding: 12px 24px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 400;
   font-size: 21px;
+  transition: background-color 0.3s ease, border-color 0.3s ease; /* animate border color */
+  margin-left: 20px;
 }
 
 .link:hover {
-  color: #800020; /* maroon on hover */
+  color: #800020;
+  background-color: #fce8ef;
+  border-color: #800020; /* 👈 only change color */
 }
 
 .button {
   background-color: #800020;
   color: #fff;
   border: none;
-  padding: 12px 24px; /* ⬅️ increase these values */
+  padding: 12px 24px;
   border-radius: 25px;
   cursor: pointer;
   font-weight: 400;
@@ -51,7 +58,10 @@
 }
 
 .button:hover {
-  background-color: #a8324a; /* lighter maroon hover */
+  background-color: #f9f4f4;
+  color: #800020;
+  border: 2px solid #800020;
+  border-color: #800020;
 }
 
 .logo {

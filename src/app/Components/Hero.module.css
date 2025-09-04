@@ -35,10 +35,13 @@
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  border: 2px solid #800020;
 }
 
 .primary:hover {
-  background-color: #a8324a;
+  background-color: #ffffff;
+  color: #800020;
+  border: 2px solid #800020;
 }
 
 .secondary {
@@ -56,4 +59,5 @@
 .secondary:hover {
   background-color: #800020;
   color: #fff;
+  border: 2px solid #160106;
 }
