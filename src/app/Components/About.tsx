@@ -1,10 +1,17 @@
 "use client";
+import { motion } from "framer-motion";
 import styles from "./About.module.css";
 
 export default function About() {
   return (
     <section className={styles.about} id="about">
-      <div className={styles.intro}>
+      <motion.div
+        className={styles.intro}
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.2 }}
+      >
         <h2 className={styles.heading}>About Us</h2>
         <p>
           At Tenko, we believe every South African student deserves equal access
@@ -14,34 +21,50 @@ export default function About() {
           Our mission is simple: to guide learners from university applications
           → studying → career prep, all in one easy-to-use platform.
         </p>
-      </div>
+      </motion.div>
 
       <div className={styles.problems}>
-        <h3 className={styles.subheading}>The Problems We Solve</h3>
+        <motion.h3
+          className={styles.subheading}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          The Problems We Solve
+        </motion.h3>
+
         <div className={styles.grid}>
-          <div className={styles.card}>
-            <h4>Confusing University Applications</h4>
-            <p>
-              Students face unclear deadlines, APS confusion, and entry
-              requirements.
-            </p>
-          </div>
-
-          <div className={styles.card}>
-            <h4>Scattered & Outdated Resources</h4>
-            <p>
-              Study notes and past papers are hard to find, scattered across
-              WhatsApp groups or outdated PDFs.
-            </p>
-          </div>
-
-          <div className={styles.card}>
-            <h4>Lack of Smart Study Support</h4>
-            <p>
-              Students don’t have AI tools to help them revise or learn
-              efficiently.
-            </p>
-          </div>
+          {[
+            {
+              title: "Confusing University Applications",
+              text: "Students face unclear deadlines, APS confusion, and entry requirements.",
+            },
+            {
+              title: "Scattered & Outdated Resources",
+              text: "Study notes and past papers are hard to find, scattered across WhatsApp groups or outdated PDFs.",
+            },
+            {
+              title: "Lack of Smart Study Support",
+              text: "Students don’t have AI tools to help them revise or learn efficiently.",
+            },
+          ].map((item, i) => (
+            <motion.div
+              key={i}
+              className={styles.card}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.6,
+                delay: 0.3 + i * 0.2,
+                ease: "easeOut",
+              }}
+              viewport={{ once: true, amount: 0.2 }}
+            >
+              <h4>{item.title}</h4>
+              <p>{item.text}</p>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

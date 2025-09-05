@@ -9,7 +9,7 @@ export default function Header() {
       <nav className={styles.nav}>
         {/* Logo on the left */}
         <div className={styles.logo}>
-          <Link href="/">
+          <Link href="#hero">
             <Image src="/logo.png" alt="Logo" width={56} height={56} />
           </Link>
         </div>
@@ -17,7 +17,7 @@ export default function Header() {
         {/* Navigation links */}
         <ul className={styles.navList}>
           <li>
-            <Link href="/" className={styles.link}>
+            <Link href="#hero" className={styles.link}>
               Home
             </Link>
           </li>
@@ -34,7 +34,7 @@ export default function Header() {
         </ul>
 
         {/* Button on the right */}
-        <Link href="https://tenko-sepia.vercel.app/login" target="_blank">
+        <Link href="https://tenko-sepia.vercel.app/login">
           <button className={styles.button}>Dashboard</button>
         </Link>
       </nav>

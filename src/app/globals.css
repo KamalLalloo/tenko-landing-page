@@ -5,3 +5,8 @@ body {
   background: linear-gradient(to bottom right, #fbeaec, #ffffff);
   min-height: 100vh;
 }
+
+/* Add this */
+html {
+  scroll-behavior: smooth;
+}

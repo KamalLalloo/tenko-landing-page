@@ -1,63 +1,146 @@
 .hero {
+  position: relative;
   text-align: center;
-  padding: 12rem 2rem 6rem; /* more top & bottom space */
-  max-width: 900px;
+  padding: 10rem 2rem 6rem;
+  max-width: 960px;
   margin: 0 auto;
+  isolation: isolate; /* keeps decorative layers behind content */
+}
+
+/* soft maroon glow behind the hero content */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: -10% -10% auto -10%;
+  height: 60%;
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(128, 0, 32, 0.18) 0%,
+    rgba(128, 0, 32, 0.08) 40%,
+    transparent 70%
+  );
+  filter: blur(20px);
+  z-index: -1;
+  pointer-events: none;
 }
 
 .title {
-  font-size: 3.5rem; /* bigger title */
-  font-weight: 700;
-  color: #800020; /* maroon */
-  margin-bottom: 1.5rem;
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+  color: #800020; /* fallback for non-supporting browsers */
+  /* subtle gradient within the maroon family */
+  background: linear-gradient(90deg, #800020 0%, #a42846 50%, #800020 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .subtitle {
-  font-size: 1.5rem; /* bigger subtitle */
+  font-size: clamp(1.125rem, 2.2vw, 1.375rem);
   color: #333;
-  margin-bottom: 2.5rem;
-  line-height: 1.8; /* more readable */
+  opacity: 0.9;
+  margin: 0 auto 2.25rem;
+  line-height: 1.8;
+  max-width: 48ch; /* improves readability */
 }
 
 .buttons {
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  align-items: center;
+  gap: 0.875rem;
+  flex-wrap: wrap; /* keeps buttons from squishing on small screens */
 }
 
+/* shared button base */
+.primary,
+.secondary {
+  padding: 0.95rem 1.5rem;
+  border-radius: 999px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.25s ease,
+    background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+  will-change: transform, box-shadow;
+}
+
+/* primary (filled maroon) */
 .primary {
   background-color: #800020;
   color: #fff;
-  border: none;
-  padding: 1rem 2rem; /* larger button */
-  border-radius: 25px;
-  font-size: 1.1rem; /* bigger text */
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
   border: 2px solid #800020;
+  box-shadow: 0 0 0 rgba(128, 0, 32, 0), 0 8px 20px rgba(128, 0, 32, 0.16);
 }
 
 .primary:hover {
   background-color: #ffffff;
   color: #800020;
-  border: 2px solid #800020;
+  border-color: #800020;
+  box-shadow: 0 0 0 rgba(128, 0, 32, 0.3), 0 10px 28px rgba(128, 0, 32, 0.22);
+  transform: translateY(-2px);
 }
 
+.primary:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(128, 0, 32, 0.18);
+}
+
+/* secondary (outline maroon) */
 .secondary {
   background-color: transparent;
   color: #800020;
   border: 2px solid #800020;
-  padding: 1rem 2rem; /* larger button */
-  border-radius: 25px;
-  font-size: 1.1rem; /* bigger text */
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  box-shadow: 0 0 0 rgba(128, 0, 32, 0);
 }
 
 .secondary:hover {
   background-color: #800020;
   color: #fff;
-  border: 2px solid #160106;
+  border-color: #800020;
+  box-shadow: 0 8px 20px rgba(128, 0, 32, 0.2);
+  transform: translateY(-2px);
+}
+
+.secondary:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(128, 0, 32, 0.16);
+}
+
+/* keyboard focus styles */
+.primary:focus-visible,
+.secondary:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.9),
+    0 0 0 6px rgba(128, 0, 32, 0.55);
+}
+
+/* spacing tweaks on very small screens */
+@media (max-width: 480px) {
+  .hero {
+    padding: 8rem 1rem 5rem;
+  }
+  .buttons {
+    gap: 0.75rem;
+  }
+  .primary,
+  .secondary {
+    width: 100%;
+    max-width: 420px;
+  }
+}
+
+/* respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .primary,
+  .secondary {
+    transition: none;
+  }
+  .primary:hover,
+  .secondary:hover {
+    transform: none;
+  }
 }

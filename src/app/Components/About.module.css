@@ -1,75 +1,105 @@
 .about {
-  max-width: 1000px;
+  max-width: 1100px;
   margin: 0 auto;
-  text-align: center; /* center all text */
+  text-align: center;
+  padding: 0rem 2rem;
 }
 
 .heading {
-  font-size: 3rem;
-  font-weight: 700;
+  font-size: clamp(2.25rem, 5vw, 3rem);
+  font-weight: 800;
   color: #800020; /* maroon */
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
+  letter-spacing: -0.01em;
 }
 
 .intro p {
   margin-bottom: 1rem;
-  line-height: 1.6;
+  line-height: 1.7;
   color: #333;
-  font-size: 1.5rem;
+  font-size: clamp(1.125rem, 2vw, 1.4rem);
+  max-width: 65ch;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .list {
   list-style: none;
   padding: 0;
-  margin: 1rem 0 2rem;
+  margin: 1.5rem 0 2.5rem;
   font-weight: 600;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 
 .list li {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
 }
 
 .subheading {
-  font-size: 2.5rem;
-  font-weight: 600;
-  margin: 3rem 0 2rem;
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  font-weight: 700;
+  margin: 3rem 0 2.5rem;
   color: #800020;
 }
 
 .grid {
   display: grid;
-  gap: 2rem;
-  grid-template-columns: repeat(auto-fit, 300px); /* fixed card size */
-  justify-content: center; /* centers leftover columns */
+  gap: 2.5rem;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(340px, 1fr)
+  ); /* bigger cards */
+  justify-content: center;
 }
 
 .card {
   background: #fff;
   border: 1px solid #ddd;
-  border-radius: 12px;
-  padding: 1.5rem;
-  transition: box-shadow 0.3s ease;
+  border-radius: 16px;
+  padding: 2rem;
+  transition: transform 0.25s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 10px rgba(128, 0, 32, 0.35); /* subtle maroon glow */
 }
 
 .card:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 22px rgba(128, 0, 32, 0.65);
+  transform: translateY(-6px);
 }
 
 .card h4 {
-  font-size: 1.2rem;
+  font-size: 1.35rem;
+  font-weight: 700;
   color: #800020;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
 }
 
 .card p {
   color: #333;
-  font-size: 0.95rem;
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
 .closing {
   margin-top: 3rem;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 500;
   color: #333;
+  max-width: 60ch;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+/* responsiveness */
+@media (max-width: 480px) {
+  .about {
+    padding: 3rem 1rem;
+  }
+  .grid {
+    gap: 1.5rem;
+    grid-template-columns: 1fr; /* single column on very small screens */
+  }
+  .card {
+    padding: 1.5rem;
+  }
 }
